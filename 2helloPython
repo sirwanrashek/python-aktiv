@@ -1,1 +1,17 @@
 print("Hello Python)
+
+
+To check if Python is installed on Windows
+C:\Users\Your Name>python --version
+
+To check if you have python installed on a Linux or Mac,
+python --version 
+
+
+Python Quickstart
+write Python (.py) files in a text editor and then put 
+those files into the python interpreter to be executed.
+
+hello.py -> print("Hello, World!")
+C:\Users\Your Name>python hello.py  -> Hello, World! 
+
