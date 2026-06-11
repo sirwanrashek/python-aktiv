@@ -1,0 +1,110 @@
+class Myclass:
+    x = 5
+
+
+print(Myclass)
+# -> <class '__main__.Myclass'>
+print(Myclass.x)
+# -> 5
+
+#Create an object named p1, and print the value of x:
+p2 = Myclass()
+print(p2.x)
+# -> 5
+
+
+#Delete Objects
+del p2
+
+
+class Person:
+
+#init method acts as a constructor, 
+# which runs automatically when
+#  a new object is created.
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def myfunc(self):
+        print("Hello my name is " + self.name)
+p1 = Person("Sirwan", 31)
+p1.myfunc()
+# -> Hello my name is Sirwan
+
+#The pass Statement
+#class definitions cannot be empty, 
+# but if you for some reason
+# have a class definition with no content, 
+# put in the pass statement to avoid getting an error.
+class Person:
+    pass
+
+
+#Python __init__() Method
+#The __init__() function is called automatically 
+# every time the class is being used 
+# to create a new object.
+
+#The __init__() method is used to assign values 
+# to object properties.
+
+#Why Use __init__()?
+#Without the __init__() method, you would need 
+#to set properties manually for each object:
+class Person3:
+  pass
+
+p3 = Person3()
+p3.name = "Tobias"
+p3.age = 25
+
+print(p3.name)
+print(p3.age) 
+#With the __init__() method, you can do this all 
+# in one step:
+
+
+#Default Values in __init__()
+#You can also set default values 
+#for parameters in the __init__() method:
+class Person4:
+  def __init__(self, name="John", age=36):
+    self.name = name
+    self.age = age
+p4 = Person4("Eli")
+print(p4.name, p4.age)
+# -> Eli 36
+
+p5 = Person4("Sara", 25)
+print(p5.name, p5.age) # -> Sara 25
+
+#The self Parameter:
+#The self parameter is a reference 
+# to the current instance of the class,
+# and is used to access variables that 
+# belong to the class.
+#It does not have to be named self,
+# you can call it whatever you like,
+
+#Note: The self parameter must be the first parameter
+# of any method in the class.
+
+#Without self, Python would not know which object's
+# properties you want to access:
+
+#noch Beispiele über self:
+class Person5:
+ 
+  def __init__(self, name):
+    self.name = name
+
+  def greet(self):
+    return "Hello, " + self.name
+
+  def welcome(self):
+    message = self.greet()
+    print(message + "! Welcome to our website.")
+
+p5 = Person5("Tobias")
+p5.welcome() 
