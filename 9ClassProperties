@@ -1,0 +1,89 @@
+#Properties are variables that belong to a class.
+#They store data for each object
+#created from the class.
+  
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person("Emil", 36)
+
+print(p1.name) 
+print(p1.age)
+
+#Access Properties with the dot notation:
+class Car:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+car1 = Car("Toyota", "Corolla")
+
+print(car1.brand) #-> Toyota
+print(car1.model) #-> Corolla
+
+#modify Properties
+class Student:
+  def __init__(self, name, grade):
+    self.name = name
+    self.grade = grade
+
+student1 = Student("Alice", 85)
+print(student1.name) #-> Alice
+print(student1.grade) #-> 85
+
+
+student1.grade = 90 #modify Properties
+print(student1.grade) #-> 90
+
+#Delete Properties
+class Book:
+  def __init__(self, title, author):
+    self.title = title
+    self.author = author
+book1 = Book("1984", "George Orwell")
+print(book1.title) #-> 1984
+del book1.title #Delete Properties
+# print(book1.title) #-> AttributeError: 
+# 'Book' object has no attribute '
+print(book1.author) #-> George Orwell
+
+#Class Properties vs Object Properties
+#Properties defined inside __init__() belong
+# to each object (instance properties).
+# Properties defined outside methods belong
+# to the class itself (class properties)
+# and are shared by all objects:
+class Person:
+  species = "Human" # Class property
+  def __init__(self, name, age):
+
+        # Object property #Instance property
+        self.name = name 
+        self.age = age
+
+#Modifying Class Properties
+# Modifying a class property will affect
+# all instances that share that property: 
+class Person:
+  lastname = "" # Class property
+  def __init__(self, name):
+    self.name = name
+p1 = Person("Alice")
+p2 = Person("Bob")
+Person.lastname = "Smith" # Modifying class property
+print(p1.lastname) #-> Smith    
+print(p2.lastname) #-> Smith     
+
+#Add New Properties
+class Person:
+  def __init__(self, name):
+    self.name = name
+    p1 = Person("Sarah")
+    p1.age = 30 # Add new property to an instance
+    p1.city = "New York" # Add another property to the instance
+    print(p1.name) #-> Sarah
+    print(p1.age) #-> 30 
+
+    
