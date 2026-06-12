@@ -47,5 +47,77 @@ if "apple" in thislist:
 else:
   print("No, 'apple' is not in the fruits list")
 
+#Change List Items
+thislist[1] = "blackcurrant"
+print(thislist) # -> ['apple', 'blackcurrant', 'cherry']
+
+#change a range of item values by referring to a range of indexes:
+thislist[1:3] = ["watermelon"]
+print(thislist) # -> ['apple', 'watermelon']
+
+thislist2 = ["apple", "banana", "cherry", "orange", "kiwi", "mango"]
+thislist2[1:3] = ["blackcurrant", "watermelon"]
+print(thislist2) 
+
+#insert() items without replacing existing values:
+newlist = ["apple", "banana", "cherry"]
+newlist.insert(1, "orange")
+print(newlist) # -> ['apple', 'orange', 'banana', 'cherry']
+
+#Append Items
+#To add an item to the end of the list,
+# use the append() method:
+newlist.append("grape")
+print(newlist) # -> ['apple', 'orange', 'banana', 'cherry', 'grape']
+
+#Extend List
+#To append elements from another list to the current list,
+# use the extend() method:
+tropical = ["mango", "pineapple", "papaya"]
+newlist.extend(tropical)    
+print(newlist) # -> ['apple', 'orange', 'banana', 'cherry', 'grape', 'mango',
 
 
+#Add Any Iterable
+#The extend() method does not have to append lists,
+# you can add any iterable object 
+# (tuples, sets, dictionaries etc.)
+mylist = ["apple", "banana", "cherry"]
+mylist.extend(("orange", "mango", "grapes")) 
+# note the double round
+
+thistuple = ("kiwi", "orange", "graneapple")
+mylist.extend(thistuple)
+
+#Remove Specified Item
+#The remove() method removes the specified item.
+newlist2 = ["apple", "banana", "cherry"]
+newlist2.remove("banana")   
+print(newlist2) # -> ['apple', 'cherry']
+
+newlist3 = ["apple", "banana", "cherry", "banana"]
+newlist3.remove("banana") #Remove the first occurrence of "banana"
+print(newlist3) # -> ['apple', 'cherry', 'banana']
+
+#Remove Specified Index
+#The pop() method removes the specified index,
+# (or the last item if index is not specified).
+newlist4 = ["apple", "banana", "cherry"]
+newlist4.pop(1) #Remove the second item
+print(newlist4) # -> ['apple', 'cherry']
+newlist5 = ["apple", "banana", "cherry"]
+newlist5.pop() #Remove the last item    
+print(newlist5) # -> ['apple', 'banana']
+
+#del keyword also removes the specified index:
+newlist6 = ["apple", "banana", "cherry"]
+del newlist6[0] #Remove the first item  
+print(newlist6) # -> ['banana', 'cherry']
+newlist7 = ["apple", "banana", "cherry"]
+del newlist7 #Delete the entire list
+# print(newlist7) # -> NameError: name 'newlist7' is not
+
+#clear() method empties the list but keeps the list itself:
+newlist8 = ["apple", "banana", "cherry"]
+newlist8.clear() #Empties the list
+print(newlist8) # -> []
