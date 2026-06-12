@@ -1,0 +1,123 @@
+class Calculator:
+
+ def add(self, a, b):
+   return a + b
+ def multiply(self, a, b):
+   return a * b 
+ 
+#Create an object (instance)of the Calculator class 
+calc = Calculator() 
+print(calc.add(5, 3)) #-> 8
+print(calc.multiply(5, 3)) #-> 15
+
+#Methods Accessing Properties
+class Circle:
+  def __init__(self, radius):
+    self.radius = radius
+  def area(self):
+    # 5 ** 2 = 25 * 3.14 = 78.5
+    return 3.14 * self.radius ** 2  
+circle1 = Circle(5)
+print(circle1.area()) #-> 78.5
+ 
+#Methods can access properties using the self keyword,
+# which refers to the instance of the class.
+#f-strings can be used to format 
+# the output of methods that access properties:
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def get_info(self):
+    return f"{self.name} is {self.age} years old"
+
+p1 = Person("Tobias", 28)
+print(p1.get_info()) 
+#-> Tobias is 28 years old
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def birthday(self):
+    self.age += 1 #modify Properties
+    return f"Happy Birthday {self.name}! You are now {self.age} years old."
+p1 = Person("Tobias", 29) 
+print(p1.birthday()) 
+#-> Happy Birthday Tobias!You are now 30 years old.
+
+#the __str__() method defines how an object
+# is represented as a string.
+# in anther word is a special method that controls 
+# what is returned when the object is printed:
+class Car:
+  def __init__(self, make, model):
+    self.make = make
+    self.model = model
+
+  def __str__(self):
+    return f"{self.make} {self.model}"
+car1 = Car("Honda", "Civic")
+print(car1) #-> Honda Civic
+
+
+#Multiple Methods
+class Rectangle:
+  def __init__(self, width, height):
+    self.width = width
+    self.height = height
+
+  def area(self):
+    return self.width * self.height
+
+  def perimeter(self):
+    return 2 * (self.width + self.height)
+rect1 = Rectangle(4, 2)
+print(rect1.area()) #-> 8
+print(rect1.perimeter()) #-> 12
+
+class Playlist:
+  def __init__(self, name):
+    self.name = name
+    # initially, the playlist has no songs,
+    # so we create an empty list to store them.
+    self.songs = [] 
+
+    #append() method is used to add an item to
+    # the end of a list.
+  def add_song(self, song):
+    self.songs.append(song)
+    print(f"Added: {song}")
+
+  def remove_song(self, song):
+    if song in self.songs:
+      self.songs.remove(song)
+      print(f"Removed: {song}")
+
+  def show_songs(self):
+    print(f"Playlist '{self.name}':")
+    for song in self.songs:
+      print(f"- {song}")
+
+my_playlist = Playlist("Favorites")
+my_playlist.add_song("Bohemian Rhapsody") #-> Added: Bohemian Rhapsody
+my_playlist.add_song("Stairway to Heaven") #-> Added: Stairway to Heaven
+my_playlist.show_songs() #-> Playlist 'Favorites':
+                        #-> - Bohemian Rhapsody
+                        #-> - Stairway to Heaven
+
+#delete Methods
+class Person:
+  def __init__(self, name):
+    self.name = name
+
+  def greet(self):
+    print("Hello!")
+
+p1 = Person("Emil")
+
+del Person.greet
+
+p1.greet() # This will cause an error  
